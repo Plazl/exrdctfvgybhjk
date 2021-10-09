@@ -51,6 +51,15 @@
                 <div id="eternitybtnPeak" class="hideEmpty hideInMorse"></div>
             </button>
         </div>
+		<div id = "omnibtndiv" style="position: relative; width: 300px; left: 50%; transform: translate(-50%, 0)">
+            <div class="OP" id="omnipotencePoints2">You have <b>0</b> Omnipotence points.</div><br>
+			<button id = "omnibtn" class = "omnibtn" onclick = "omnipotenceReset()">
+				<div id="omnibtnFlavor" class="hideEmpty">commit yeet everything</div>
+				<div id="omnibtnOPGain" class="hideEmpty"></div>
+				<div id="omnibtnRate" class="hideEmpty"></div>
+				<div id="omnibtnPeak" class="hideEmpty"></div>
+			</button>
+		</div>
         <div style="position: relative">
             <div class="EP" id="galaxyPoints2">You have <span class='GPAmount'>0</span> Galaxy points.</div>
             <span id="sacpos" class="eterpos"><button id="sacrificebtn" class="storebtn" onclick="galacticSacrifice()"></button></span>
@@ -99,6 +108,9 @@
             <button id="omnitabbtn" style="font-family: Typewriter; font-size: 20px; display: none" class="omnibtn" onclick='showTab("omnitab")'>Omnipotence</button>
             <button id="forgetabbtn" style="font-=: Typewriter; font-size: 20px; display: none" class="forgebtn" onclick='showTab("forgetab")'>The Forge</button>
         </div>
+		<div id = "death" style = "z-index: 100000; position: fixed; width: 100%; height: 100%; left: 0; top: 0; background-color: black; transition-duration: 5s; opacity: 0; pointer-events: none">
+			<div id = "bleed" style = "font-size: 200%; color: black; text-shadow: 0px 0px 7px #f00; width: 100%; position: fixed; top: 50%; transform: translate(0, -50%); transition-duration: 5s"></div>
+		</div>
         <div id="emptiness" class="tab" style="font-size: 150%">
             <br>
             <br>
@@ -128,40 +140,40 @@
                 <table class="table" id="studytable">
                     <tr>
                         <td style="opacity: 0;"><button class="timestudylocked"></button></td>
-                        <td><button class="timestudylocked" id="11" onclick="buyTimeStudy(11)">Tickspeed affects 1st Time Dimension with reduced effect<span id="11desc">Currently: 1x</span>Cost: <t id = "studyCost0"></t> Time Theorems</button></td>
+                        <td><button class="timestudylocked" id="11" onclick="buyTimeStudy(11)">Tickspeed affects 1st Time Dimension with reduced effect<span id="11desc">Currently: 1x</span>Cost: <t id = "studyCost11"></t> Time Theorems</button></td>
                         <td><button class="timestudybought" id="secretstudy" style="opacity: 0; cursor: pointer; transition-duration: 2s;">Unlock a secret achievement<span>Cost: 0 Time Theorems</button></td>
                     </tr>
                 </table>
                 <br>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="21" onclick="buyTimeStudy(21)">Replicanti multiplier formula is better (log2(x)^2 -> x^0.032)<span>Cost: <t id = "studyCost1"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="22" onclick="buyTimeStudy(22)">Replicanti interval limit 50ms -> 1ms<span>Cost: <t id = "studyCost2"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="21" onclick="buyTimeStudy(21)">Replicanti multiplier formula is better (log2(x)^2 -> x^0.032)<span>Cost: <t id = "studyCost21"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="22" onclick="buyTimeStudy(22)">Replicanti interval limit 50ms -> 1ms<span>Cost: <t id = "studyCost22"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="33" onclick="buyTimeStudy(33)">You keep half of your replicanti galaxies on infinity<span>Cost: <t id = "studyCost3"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="31" onclick="buyTimeStudy(31)">Powers up bonuses that are based on your infinitied stat (to the power of <t id="31desc">4</t>)<span>Cost: <t id = "studyCost4"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="32" onclick="buyTimeStudy(32)"><span id="32desc">You gain x1 more infinitied stat (based on dimension boosts)</span>Cost: <t id = "studyCost5"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="1001" onclick="buyTimeStudy(1001)"><span id="1001desc">You gain x1 more eternitied stat (based on antimatter galaxies)</span>Cost: <t id = "studyCost58"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="33" onclick="buyTimeStudy(33)">You keep half of your replicanti galaxies on infinity<span>Cost: <t id = "studyCost33"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="31" onclick="buyTimeStudy(31)">Powers up bonuses that are based on your infinitied stat (to the power of <t id="31desc">4</t>)<span>Cost: <t id = "studyCost31"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="32" onclick="buyTimeStudy(32)"><span id="32desc">You gain x1 more infinitied stat (based on dimension boosts)</span>Cost: <t id = "studyCost32"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="34" onclick="buyTimeStudy(34)"><span id="34desc">You gain x1 more eternitied stat (based on antimatter galaxies)</span>Cost: <t id = "studyCost34"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="1011" onclick="buyTimeStudy(1011)">Unlock autobuyer for time dimensions.<span>Requires <t id = "studyCost59"></t> total Time Theorems</button></td>
+                        <td><button class="timestudy" id="43" onclick="buyTimeStudy(43)">Unlock autobuyer for time dimensions.<span>Requires <t id = "studyCost43"></t> total Time Theorems</button></td>
 						<td style="opacity: 0;"><button class="timestudylocked"></button></td>
                         <td><button class="timestudy" id="41" onclick="buyTimeStudy(41)"></button></td>
                         <td><button class="timestudy" id="42" onclick="buyTimeStudy(42)"></button></td>
 						<td style="opacity: 0;"><button class="timestudylocked"></button></td>
-                        <td><button class="timestudy" id="1012" onclick="buyTimeStudy(1012)">Unlock autobuyer for x5 EP upgrades.<span>Requires <t id = "studyCost60"></t> total Time Theorems</button></td>
+                        <td><button class="timestudy" id="44" onclick="buyTimeStudy(44)">Unlock autobuyer for x5 EP upgrades.<span>Requires <t id = "studyCost44"></t> total Time Theorems</button></td>
                     </tr>
                 </table>
                 <br>
                 <table class="table" id="studytable">
                     <tr>
                         <td style="opacity: 0;"><button class="timestudylocked"></button></td>
-                        <td><button class="timestudy" id="51" onclick="buyTimeStudy(51)"><span id=51desc>You gain 1e15 times more IP</span>Cost: <t id = "studyCost8"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="51" onclick="buyTimeStudy(51)"><span id=51desc>You gain 1e15 times more IP</span>Cost: <t id = "studyCost51"></t> Time Theorems</button></td>
                         <td><button class="eternitychallengestudy" id="ec5unl">Eternity Challenge 5<span>Requirement: 200 galaxies<span>Cost: 100 Time Theorems</button></td>
                     </tr>
                 </table>
@@ -175,56 +187,56 @@
                 <br>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy normaldimstudy" id="71" onclick="buyTimeStudy(71)">Sacrifice affects all other normal dimensions with reduced effect<span id="71desc">Currently: 1x</span>Cost: <t id = "studyCost11"></t> Time Theorems</button></td>
-                        <td><button class="timestudy infdimstudy" id="72" onclick="buyTimeStudy(72)">Sacrifice affects 4th Infinity Dimension with greatly reduced effect<span id="72desc">Currently: 1x</span>Cost: <t id = "studyCost12"></t> Time Theorems</button></td>
-                        <td><button class="timestudy timedimstudy" id="73" onclick="buyTimeStudy(73)">Sacrifice affects 3rd Time Dimension with greatly reduced effect<span id="73desc">Currently: 1x</span>Cost: <t id = "studyCost13"></t> Time Theorems</button></td>
+                        <td><button class="timestudy normaldimstudy" id="71" onclick="buyTimeStudy(71)">Sacrifice affects all other normal dimensions with reduced effect<span id="71desc">Currently: 1x</span>Cost: <t id = "studyCost71"></t> Time Theorems</button></td>
+                        <td><button class="timestudy infdimstudy" id="72" onclick="buyTimeStudy(72)">Sacrifice affects 4th Infinity Dimension with greatly reduced effect<span id="72desc">Currently: 1x</span>Cost: <t id = "studyCost72"></t> Time Theorems</button></td>
+                        <td><button class="timestudy timedimstudy" id="73" onclick="buyTimeStudy(73)">Sacrifice affects 3rd Time Dimension with greatly reduced effect<span id="73desc">Currently: 1x</span>Cost: <t id = "studyCost73"></t> Time Theorems</button></td>
                     </tr>
                     <tr>
                         <td><button class="timestudy normaldimstudy" id="81" onclick="buyTimeStudy(81)"></button></td>
-                        <td><button class="timestudy infdimstudy" id="82" onclick="buyTimeStudy(82)">Dimensional boosts affect Infinity Dimensions<span id="82desc">Currently: 1x</span>Cost: <t id = "studyCost15"></t> Time Theorems</button></td>
-                        <td><button class="timestudy timedimstudy" id="83" onclick="buyTimeStudy(83)">Dimensional boosts are 0.04% more effective for each tick upgrade gained from Time Dimensions<span>Cost: <t id = "studyCost16"></t> Time Theorems</button></td>
+                        <td><button class="timestudy infdimstudy" id="82" onclick="buyTimeStudy(82)">Dimensional boosts affect Infinity Dimensions<span id="82desc">Currently: 1x</span>Cost: <t id = "studyCost82"></t> Time Theorems</button></td>
+                        <td><button class="timestudy timedimstudy" id="83" onclick="buyTimeStudy(83)">Dimensional boosts are 0.04% more effective for each tick upgrade gained from Time Dimensions<span>Cost: <t id = "studyCost83"></t> Time Theorems</button></td>
                     </tr>
                     <tr>
-                        <td><button class="timestudy normaldimstudy" id="91" onclick="buyTimeStudy(91)">Normal dimensions gain a multiplier based on time spent this eternity<span id="91desc">Currently: 1x</span>Cost: <t id = "studyCost17"></t> Time Theorems</button></td>
-                        <td><button class="timestudy infdimstudy" id="92" onclick="buyTimeStudy(92)">Infinity dimensions gain a multiplier based on fastest eternity time<span id="92desc">Currently: 1x</span>Cost: <t id = "studyCost18"></t> Time Theorems</button></td>
-                        <td><button class="timestudy timedimstudy" id="93" onclick="buyTimeStudy(93)">Time dimensions gain a multiplier based on tick upgrades gained<span id="93desc">Currently: 1x</span>Cost: <t id = "studyCost19"></t> Time Theorems</button></td>
+                        <td><button class="timestudy normaldimstudy" id="91" onclick="buyTimeStudy(91)">Normal dimensions gain a multiplier based on time spent this eternity<span id="91desc">Currently: 1x</span>Cost: <t id = "studyCost91"></t> Time Theorems</button></td>
+                        <td><button class="timestudy infdimstudy" id="92" onclick="buyTimeStudy(92)">Infinity dimensions gain a multiplier based on fastest eternity time<span id="92desc">Currently: 1x</span>Cost: <t id = "studyCost92"></t> Time Theorems</button></td>
+                        <td><button class="timestudy timedimstudy" id="93" onclick="buyTimeStudy(93)">Time dimensions gain a multiplier based on tick upgrades gained<span id="93desc">Currently: 1x</span>Cost: <t id = "studyCost93"></t> Time Theorems</button></td>
                     </tr>
                     <tr>
-                        <td><button class="timestudy normaldimstudy" id="101" onclick="buyTimeStudy(101)">Replicantis give multiplier to normal dims equal to their amount.<span>Cost: <t id = "studyCost20"></t> Time Theorems</button></td>
-                        <td><button class="timestudy infdimstudy" id="102" onclick="buyTimeStudy(102)">Replicanti galaxies power replicanti multiplier<span>Cost: <t id = "studyCost21"></t> Time Theorems</button></td>
-                        <td><button class="timestudy timedimstudy" id="103" onclick="buyTimeStudy(103)">Time dimensions gain a multiplier equal to replicanti galaxy amount<span>Cost: <t id = "studyCost22"></t> Time Theorems</p></button></td>
+                        <td><button class="timestudy normaldimstudy" id="101" onclick="buyTimeStudy(101)">Replicantis give multiplier to normal dims equal to their amount.<span>Cost: <t id = "studyCost101"></t> Time Theorems</button></td>
+                        <td><button class="timestudy infdimstudy" id="102" onclick="buyTimeStudy(102)">Replicanti galaxies power replicanti multiplier<span>Cost: <t id = "studyCost102"></t> Time Theorems</button></td>
+                        <td><button class="timestudy timedimstudy" id="103" onclick="buyTimeStudy(103)">Time dimensions gain a multiplier equal to replicanti galaxy amount<span>Cost: <t id = "studyCost103"></t> Time Theorems</p></button></td>
                     </tr>
                 </table>
                 <br>
                 <table class="table" id="studytable">
                     <tr>
                         <td><button class="eternitychallengestudy" id="ec7unl">Eternity Challenge 7<span>Requirement: 1e550,000 antimatter<span>Cost: 115 Time Theorems</button></td>
-                        <td><button class="timestudy" id="111" onclick="buyTimeStudy(111, 12)">Make the IP formula better<span>Cost: <t id = "studyCost23"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="111" onclick="buyTimeStudy(111, 12)">Make the IP formula better<span>Cost: <t id = "studyCost111"></t> Time Theorems</button></td>
                         <td style="opacity: 0;"><button class="timestudylocked"></button></td>
                     </tr>
                 </table>
                 <br>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy activestudy" id="121" onclick="buyTimeStudy(121)">The worse your average EP/min is, the more EP you get<span id="121desc">Currently: 1x</span>Cost: <t id = "studyCost24"></t> Time Theorems</button></td>
-                        <td><button class="timestudy passivestudy" id="122" onclick="buyTimeStudy(122)">You gain 35x more EP<span>Cost: <t id = "studyCost25"></t> Time Theorems</button></td>
-                        <td><button class="timestudy idlestudy" id="123" onclick="buyTimeStudy(123)">You gain more EP based on time spent this eternity<span id="123desc">Currently: 1x</span>Cost: <t id = "studyCost26"></t> Time Theorems</button></td>
+                        <td><button class="timestudy activestudy" id="121" onclick="buyTimeStudy(121)">The worse your average EP/min is, the more EP you get<span id="121desc">Currently: 1x</span>Cost: <t id = "studyCost121"></t> Time Theorems</button></td>
+                        <td><button class="timestudy passivestudy" id="122" onclick="buyTimeStudy(122)">You gain 35x more EP<span>Cost: <t id = "studyCost122"></t> Time Theorems</button></td>
+                        <td><button class="timestudy idlestudy" id="123" onclick="buyTimeStudy(123)">You gain more EP based on time spent this eternity<span id="123desc">Currently: 1x</span>Cost: <t id = "studyCost123"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
                         <td><button class="eternitychallengestudy" id="ec6unl">Eternity Challenge 6<span>Requirement: 40 replicanti galaxies<span>Cost: 100 Time Theorems</button></td>
-                        <td><button class="timestudy activestudy" id="131" onclick="buyTimeStudy(131)"><t id = "131desc">Automatic replicanti galaxies are disabled, but you can get 50% more</t><span>Cost: <t id = "studyCost27"></t> Time Theorems</button></td>
-                        <td><button class="timestudy passivestudy" id="132" onclick="buyTimeStudy(132)">Replicanti galaxies are 40% more effective<span>Cost: <t id = "studyCost28"></t> Time Theorems</button></td>
-                        <td><button class="timestudy idlestudy" id="133" onclick="buyTimeStudy(133)">Replicanti are 10x slower until infinity, but their galaxies are 50% stronger<span>Cost: <t id = "studyCost29"></t> Time Theorems</button></td>
+                        <td><button class="timestudy activestudy" id="131" onclick="buyTimeStudy(131)"><t id = "131desc">Automatic replicanti galaxies are disabled, but you can get 50% more</t><span>Cost: <t id = "studyCost131"></t> Time Theorems</button></td>
+                        <td><button class="timestudy passivestudy" id="132" onclick="buyTimeStudy(132)">Replicanti galaxies are 40% more effective<span>Cost: <t id = "studyCost132"></t> Time Theorems</button></td>
+                        <td><button class="timestudy idlestudy" id="133" onclick="buyTimeStudy(133)">Replicanti are 10x slower until infinity, but their galaxies are 50% stronger<span>Cost: <t id = "studyCost133"></t> Time Theorems</button></td>
                         <td><button class="eternitychallengestudy" id="ec8unl">Eternity Challenge 8<span>Cost: 100 Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy activestudy" id="141" onclick="buyTimeStudy(141)">Multiplier to IP, decaying over this infinity<span id="141desc">Currently 1x</span>Cost: <t id = "studyCost30"></t> Time Theorems</button></td>
-                        <td><button class="timestudy passivestudy" id="142" onclick="buyTimeStudy(142)"><span id="142desc">You gain 1e25x more IP</span>Cost: <t id = "studyCost31"></t> Time Theorems</button></td>
-                        <td><button class="timestudy idlestudy" id="143" onclick="buyTimeStudy(143)">Multiplier to IP, increasing over this infinity<span id="143desc">Currently 1x</span>Cost: <t id = "studyCost32"></t> Time Theorems</button></td>
+                        <td><button class="timestudy activestudy" id="141" onclick="buyTimeStudy(141)">Multiplier to IP, decaying over this infinity<span id="141desc">Currently 1x</span>Cost: <t id = "studyCost141"></t> Time Theorems</button></td>
+                        <td><button class="timestudy passivestudy" id="142" onclick="buyTimeStudy(142)"><span id="142desc">You gain 1e25x more IP</span>Cost: <t id = "studyCost142"></t> Time Theorems</button></td>
+                        <td><button class="timestudy idlestudy" id="143" onclick="buyTimeStudy(143)">Multiplier to IP, increasing over this infinity<span id="143desc">Currently 1x</span>Cost: <t id = "studyCost143"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <br>
@@ -232,20 +244,20 @@
                     <tr>
                         <td style="opacity: 0;"><button class="timestudylocked"></button></td>
                         <td><button class="eternitychallengestudy" id="ec9unl">Eternity Challenge 9<span>Requirement: 1e6000 infinity power<span>Cost: 100 Time Theorems</button></td>
-                        <td><button class="timestudy" id="151" onclick="buyTimeStudy(151)"><span id="151desc">1e4x multiplier on all Time Dimensions</span>Cost: <t id = "studyCost33"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="151" onclick="buyTimeStudy(151)"><span id="151desc">1e4x multiplier on all Time Dimensions</span>Cost: <t id = "studyCost151"></t> Time Theorems</button></td>
                         <td style="opacity: 0;"><button class="timestudylocked"></button></td>
                         <td><button class="eternitychallengestudy" id="ec4unl">Eternity Challenge 4<span>Requirement: 100,000,000 infinities<span>Cost: 85 Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="161" onclick="buyTimeStudy(161)"><span id="161desc">1e616x multiplier on all normal dimensions</span>Cost: <t id = "studyCost34"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="162" onclick="buyTimeStudy(162)"><span id="162desc">1e11x multiplier on all Infinity Dimensions</span>Cost: <t id = "studyCost35"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="161" onclick="buyTimeStudy(161)"><span id="161desc">1e616x multiplier on all normal dimensions</span>Cost: <t id = "studyCost161"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="162" onclick="buyTimeStudy(162)"><span id="162desc">1e11x multiplier on all Infinity Dimensions</span>Cost: <t id = "studyCost162"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="171" onclick="buyTimeStudy(171)">Time shard requirement for the next tickspeed upgrade goes up slower<span>Cost: <t id = "studyCost36"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="171" onclick="buyTimeStudy(171)">Time shard requirement for the next tickspeed upgrade goes up slower<span>Cost: <t id = "studyCost171"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
@@ -257,7 +269,7 @@
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="181" onclick="buyTimeStudy(181)">You gain 1% of your IP gained on crunch each second.<span>Cost: <t id = "studyCost37"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="181" onclick="buyTimeStudy(181)">You gain 1% of your IP gained on crunch each second.<span>Cost: <t id = "studyCost181"></t> Time Theorems</button></td>
                     </tr>
 				</table>
 				<table class="table" id="studytable">
@@ -271,43 +283,43 @@
 				<div id = "ngtlockedstudies">
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="191" onclick="buyTimeStudy(191)">After eternity you permanently keep 5% of your infinities<span>Cost: <t id = "studyCost38"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="192" onclick="buyTimeStudy(192)" style="font-size: 10px;"><span id="192desc">You can get beyond 1.8e308 replicantis, but the interval is increased the more you have</span>Cost: <t id = "studyCost39"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="193" onclick="buyTimeStudy(193)">Normal dimension boost based on eternities<span id="193desc">Currently: 1x</span>Cost: <t id = "studyCost40"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="191" onclick="buyTimeStudy(191)">After eternity you permanently keep 5% of your infinities<span>Cost: <t id = "studyCost191"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="192" onclick="buyTimeStudy(192)" style="font-size: 10px;"><span id="192desc">You can get beyond 1.8e308 replicantis, but the interval is increased the more you have</span>Cost: <t id = "studyCost192"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="193" onclick="buyTimeStudy(193)">Normal dimension boost based on eternities<span id="193desc">Currently: 1x</span>Cost: <t id = "studyCost193"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="201" onclick="buyTimeStudy(201)"><t id = "201desc">Pick another path from the first split</t><span>Cost: <t id = "studyCost41"></t> Time Theorems</button></td>
-						<td><button class="timestudy" id="1021" onclick="buyTimeStudy(1021)"><span id="1021desc">Unlock the ability to gain max RGs.</span>Requires <t id = "studyCost61"></t> total Time Theorems</button></td>
+                        <td><button class="timestudy" id="201" onclick="buyTimeStudy(201)"><t id = "201desc">Pick another path from the first split</t><span>Cost: <t id = "studyCost201"></t> Time Theorems</button></td>
+						<td><button class="timestudy" id="202" onclick="buyTimeStudy(202)"><span id="202desc">Unlock the ability to gain max RGs.</span>Requires <t id = "studyCost202"></t> total Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy" id="211" onclick="buyTimeStudy(211)">Dimensional boost requirement scaling is reduced by 5<span>Cost: <t id = "studyCost42"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="212" onclick="buyTimeStudy(212)">Galaxies are more effective based on your timeshards<span id="212desc">Currently: 1x</span>Cost: <t id = "studyCost43"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="213" onclick="buyTimeStudy(213)">You gain replicanti 20 times faster<span>Cost: <t id = "studyCost44"></t> Time Theorems</button></td>
-                        <td><button class="timestudy" id="214" onclick="buyTimeStudy(214)">Sacrifice boosts the 8th dimension even more<span id="214desc">Currently: 1x</span>Cost: <t id = "studyCost45"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="211" onclick="buyTimeStudy(211)">Dimensional boost requirement scaling is reduced by 5<span>Cost: <t id = "studyCost211"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="212" onclick="buyTimeStudy(212)">Galaxies are more effective based on your timeshards<span id="212desc">Currently: 1x</span>Cost: <t id = "studyCost212"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="213" onclick="buyTimeStudy(213)">You gain replicanti 20 times faster<span>Cost: <t id = "studyCost213"></t> Time Theorems</button></td>
+                        <td><button class="timestudy" id="214" onclick="buyTimeStudy(214)">Sacrifice boosts the 8th dimension even more<span id="214desc">Currently: 1x</span>Cost: <t id = "studyCost214"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr class="wideRow">
-                        <td><button class="timestudy darkstudy" id="221" onclick="buyTimeStudy(221)">Dimensional boosts affect time dimensions with reduced power.<span>Cost: <t id = "studyCost46"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="222" onclick="buyTimeStudy(222)">Dimensional boost costs scale by another <t id = "ts222pow">2</t> less.<span>Cost: <t id = "studyCost47"></t> Time Theorems</button></td>
-                        <td><button class="timestudy darkstudy" id="223" onclick="buyTimeStudy(223)">Galaxy cost scaling starts <t id = "223eff">7</t> galaxies later.<span>Cost: <t id = "studyCost48"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="224" onclick="buyTimeStudy(224)">Galaxy cost scaling starts 1 galaxy later for every <t id = "224eff">2000</t> dimensional boosts.<span>Currently: +<t id = "224amt"></t><span>Cost: <t id = "studyCost49"></t> Time Theorems</button></td>
-                        <td><button class="timestudy darkstudy" id="225" onclick="buyTimeStudy(225)">You gain an extra RG for every <t id = "225eff">1e1000</t>x more replicanti.<span>Currently: +<t id = "225amt"></t><span>Cost: <t id = "studyCost50"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="226" onclick="buyTimeStudy(226)">You gain an extra RG every <t id = "226eff">15</t> normal RGs.<span>Currently: +<t id = "226amt"></t><span>Cost: <t id = "studyCost51"></t> Time Theorems</button></td>
-                        <td><button class="timestudy darkstudy" id="227" onclick="buyTimeStudy(227)">Sacrifice affects the 4th Time Dimension with reduced effect.<span>Cost: <t id = "studyCost52"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="228" onclick="buyTimeStudy(228)">Sacrifice scales better.<span>Cost: <t id = "studyCost53"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="221" onclick="buyTimeStudy(221)">Dimensional boosts affect time dimensions with reduced power.<span>Cost: <t id = "studyCost221"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="222" onclick="buyTimeStudy(222)">Dimensional boost costs scale by another <t id = "ts222pow">2</t> less.<span>Cost: <t id = "studyCost222"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="223" onclick="buyTimeStudy(223)">Galaxy cost scaling starts <t id = "223eff">7</t> galaxies later.<span>Cost: <t id = "studyCost223"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="224" onclick="buyTimeStudy(224)">Galaxy cost scaling starts 1 galaxy later for every <t id = "224eff">2000</t> dimensional boosts.<span>Currently: +<t id = "224amt"></t><span>Cost: <t id = "studyCost224"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="225" onclick="buyTimeStudy(225)">You gain an extra RG for every <t id = "225eff">1e1000</t>x more replicanti.<span>Currently: +<t id = "225amt"></t><span>Cost: <t id = "studyCost226"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="226" onclick="buyTimeStudy(226)">You gain an extra RG every <t id = "226eff">15</t> normal RGs.<span>Currently: +<t id = "226amt"></t><span>Cost: <t id = "studyCost226"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="227" onclick="buyTimeStudy(227)">Sacrifice affects the 4th Time Dimension with reduced effect.<span>Cost: <t id = "studyCost227"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="228" onclick="buyTimeStudy(228)">Sacrifice scales better.<span>Cost: <t id = "studyCost228"></t> Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudy darkstudy" id="231" onclick="buyTimeStudy(231)">Dimensional boosts are more effective based on their amount.<span>Cost: <t id = "studyCost54"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="232" onclick="buyTimeStudy(232)">Galaxies are more effective based on non-replicated galaxies.<span>Cost: <t id = "studyCost55"></t> Time Theorems</button></td>
-                        <td><button class="timestudy darkstudy" id="233" onclick="buyTimeStudy(233)">Max replicanti galaxy upgrade cost is reduced based on replicanti.<span>Cost: <t id = "studyCost56"></t> Time Theorems</button></td>
-                        <td><button class="timestudy lightstudy" id="234" onclick="buyTimeStudy(234)">Sacrifice boosts First Dimension.<span>Cost: <t id = "studyCost57"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="231" onclick="buyTimeStudy(231)">Dimensional boosts are more effective based on their amount.<span>Cost: <t id = "studyCost231"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="232" onclick="buyTimeStudy(232)">Galaxies are more effective based on non-replicated galaxies.<span>Cost: <t id = "studyCost232"></t> Time Theorems</button></td>
+                        <td><button class="timestudy darkstudy" id="233" onclick="buyTimeStudy(233)">Max replicanti galaxy upgrade cost is reduced based on replicanti.<span>Cost: <t id = "studyCost233"></t> Time Theorems</button></td>
+                        <td><button class="timestudy lightstudy" id="234" onclick="buyTimeStudy(234)">Sacrifice boosts First Dimension.<span>Cost: <t id = "studyCost234"></t> Time Theorems</button></td>
                     </tr>
                 </table>
 				</div>
@@ -324,14 +336,14 @@
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudylocked" id="dilstudy2" onclick="buyDilationStudy(2, 1e6)">Unlock the 5th Time Dimension<span>Cost: <t id = "td5unl">1,000,000</t> Time Theorems</button></td>
-                        <td><button class="timestudylocked" id="dilstudy3" onclick="buyDilationStudy(3, 1e7)">Unlock the 6th Time Dimension<span>Cost: <t id = "td6unl">10,000,000</t> Time Theorems</button></td>
+                        <td><button class="timestudylocked" id="dilstudy2" onclick="buyDilationStudy(2, 1e6)">Unlock the 5th Time Dimension<span id = "td5unl">Cost: 1,000,000 Time Theorems</button></td>
+                        <td><button class="timestudylocked" id="dilstudy3" onclick="buyDilationStudy(3, 1e7)">Unlock the 6th Time Dimension<span id = "td6unl">Cost: 10,000,000 Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
                     <tr>
-                        <td><button class="timestudylocked" id="dilstudy4" onclick="buyDilationStudy(4, 1e8)">Unlock the 7th Time Dimension<span>Cost: <t id = "td7unl">100,000,000</t> Time Theorems</button></td>
-                        <td><button class="timestudylocked" id="dilstudy5" onclick="buyDilationStudy(5, 1e9)">Unlock the 8th Time Dimension<span>Cost: <t id = "td8unl">1,000,000,000</t> Time Theorems</button></td>
+                        <td><button class="timestudylocked" id="dilstudy4" onclick="buyDilationStudy(4, 1e8)">Unlock the 7th Time Dimension<span id = "td7unl">Cost: 100,000,000 Time Theorems</button></td>
+                        <td><button class="timestudylocked" id="dilstudy5" onclick="buyDilationStudy(5, 1e9)">Unlock the 8th Time Dimension<span id = "td8unl">Cost: 1,000,000,000 Time Theorems</button></td>
                     </tr>
                 </table>
                 <table class="table" id="studytable">
@@ -1577,7 +1589,7 @@
 							<div id="od1amount">0 (0)</div>
 						</td>
 						<td>
-							<button id="od1auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od1')" class="storebtn">Auto: ON</button>
+							<button id="od1auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od1')" class="storebtn">Auto: ON</button>
 						</td>
 						<td width="10%">
 							<button id="od1btn1" style="color:black; width:195px; height:30px" class="storebtn" align="right" onclick="buyOmniDimension(1)">Cost: <span id = "od1cost1"></span> GR</button>
@@ -1594,7 +1606,7 @@
 							<div id="od2amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od2auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od2')" class="storebtn">Auto: ON</button>
+							<button id="od2auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od2')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od2btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(2)">Cost: <span id = "od2cost1"></span> GR</button>
@@ -1611,7 +1623,7 @@
 							<div id="od3amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od3auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od3')" class="storebtn">Auto: ON</button>
+							<button id="od3auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od3')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od3btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(3)">Cost: <span id = "od3cost1"></span> GR</button>
@@ -1628,7 +1640,7 @@
 							<div id="od4amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od4auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od4')" class="storebtn">Auto: ON</button>
+							<button id="od4auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od4')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od4btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(4)">Cost: <span id = "od4cost1"></span> GR</button>
@@ -1645,7 +1657,7 @@
 							<div id="od5amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od5auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od5')" class="storebtn">Auto: ON</button>
+							<button id="od5auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od5')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od5btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(5)">Cost: <span id = "od5cost1"></span> GR</button>
@@ -1662,7 +1674,7 @@
 							<div id="od6amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od6auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od6')" class="storebtn">Auto: ON</button>
+							<button id="od6auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od6')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od6btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(6)">Cost: <span id = "od6cost1"></span> GR</button>
@@ -1679,7 +1691,7 @@
 							<div id="od7amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od7auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od7')" class="storebtn">Auto: ON</button>
+							<button id="od7auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od7')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od7btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(7)">Cost: <span id = "od7cost1"></span> GR</button>
@@ -1696,7 +1708,7 @@
 							<div id="od8amount" align="left">0 (0)</div>
 						</td>
 						<td>
-							<button id="od8auto" style="width:70px; font-size: 10px; float: right; visibility: hidden" onclick="toggleAutoOmni('od8')" class="storebtn">Auto: ON</button>
+							<button id="od8auto" style="width:90px; height: 30px; float: right; visibility: hidden" onclick="toggleAutoOmni('od8')" class="storebtn">Auto: ON</button>
 						</td>
 						<td>
 							<button id="od8btn1" style="color:black; width:195px; height:30px" class="storebtn" onclick="buyOmniDimension(8)">Cost: <span id = "od8cost1"></span> GR</button>
@@ -3746,7 +3758,7 @@
                 <td><button id="replicantitabbtn" class="secondarytabbtn" onclick="showInfTab('replicantis')">Replicantis</button><td>
                 <td><button id="singularitytabbtn" class="secondarytabbtn" onclick="showInfTab('singularity')">Singularity</button><td>
                 <td><button id="dimtechstabbtn" class="secondarytabbtn" onclick="showInfTab('dimtechs')">Dim-techs</button><td>
-                <td><button id="replicatorstabbtn" class="secondarytabbtn" onclick="showInfTab('replicators')">replicators</button><td>
+                <td><button id="replicatorstabbtn" class="secondarytabbtn" onclick="showInfTab('replicators')">Replicators</button><td>
             </tr>
             <div id="preinf" class="inftab">
             <br>
@@ -3862,9 +3874,9 @@
                 <button class="storebtn" id="toggleautoomnimode" style="font-size: 100%; width: 150px; height: 40px;margin: 3px; display: none" onclick="toggleAutoOmniMode()">Auto omnipotence mode: amount</button>
                 <br>
                 <tr>
-                <td id="autoBuyerEter"><div class="autoBuyerDiv" style="display:block">
+                <td id="autoBuyerOmni"><div class="autoBuyerDiv" style="display:block">
                     <div>Automatic Omnipotence</div>
-                    <div><span id='omnilimittext'>Amount of OP to wait until reset:</span>
+                    <div><span id='autoomnitext'>Amount of OP to wait until reset:</span>
                     <input type="text" onchange="updatePriorities()" id="priorityomnipotence"></input></div>
                     <br>
                     <span style="font-size: 80%">Is active</span>
@@ -3883,6 +3895,14 @@
                         <span style="font-size: 80%">Is active</span>
                         <input type="checkbox" onchange="updateAutobuyers()"  id="dilatedeternityison"></input>
                     </div>
+                </div></td>
+                <td id="autoBuyerDivi"><div class="autoBuyerDiv" style="display:block">
+                    <div>Automatic Division</div>
+                    <div><span id='divilimittext'>Amount of UM to wait until reset:</span>
+                    <input type="text" onchange="updatePriorities()" id="prioritydivision"></input></div>
+                    <br>
+                    <span style="font-size: 80%">Is active</span>
+                    <input type="checkbox" onchange="updateAutobuyers()" id="divisionison"></input>
                 </div></td>
                 <td id="autoBuyerQuantum"><div class="autoBuyerDiv" style="display:block">
                     <div>Automatic Quantum</div>
@@ -4689,7 +4709,7 @@
 		<div class = "tab" id = "omnitab">
             <table class="table" align="center" style="margin: auto" id="dimTabButtons">
                 <tr>
-                    <td><button class="secondarytabbtn" onclick="showOmniTab('omnipotence')">Omnipotence</button></td>
+                    <td><button class="secondarytabbtn" onclick="showOmniTab('omnipotence')" id = "omniomni">Omnipotence</button></td>
                     <td><button class="secondarytabbtn" onclick="showOmniTab('omnimilestones')">Milestones</button></td>
                     <td><button class="secondarytabbtn" onclick="showOmniTab('theblade')" id = "thebladetab" style = "display: none">The Blade</button></td>
                 </tr>
@@ -4701,70 +4721,85 @@
 					<div id = "omniring1" style = "position: absolute; left: 50%; top: 1000px; transform: translate(-50%, -50%); opacity: 0.1; background-color: #333; width: 960px; height: 960px; border-radius: 10000px; z-index: -69420;"></div>
 					<div id = "omniring2" style = "position: absolute; left: 50%; top: 1000px; transform: translate(-50%, -50%); opacity: 0.1; background-color: #333; width: 640px; height: 640px; border-radius: 10000px; z-index: -69420;"></div>
 					<div id = "omniring3" style = "position: absolute; left: 50%; top: 1000px; transform: translate(-50%, -50%); opacity: 0.1; background-color: #333; width: 320px; height: 320px; border-radius: 10000px; z-index: -69420;"></div>
-					<div id = "omnibtn" class = "omnibtn" onclick = "omnipotenceReset()" style = "align: center; padding-top: 2px">
-						<div id="omnibtnFlavor" class="hideEmpty">commit yeet everything</div>
-						<div id="omnibtnOPGain" class="hideEmpty"></div>
-						<div id="omnibtnRate" class="hideEmpty"></div>
-						<div id="omnibtnPeak" class="hideEmpty"></div>
-					</div>
-					<br>
 					<p>you have <span class = "op"></span> omnipotence points.</p>
-					<div class = "omniupglocked" name = "ou">multiply OP gain by 2 for every order of magnitude of current OP<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">dimension boost scaling is decreased by 2<br>currently: <span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">galaxy cost scaling is decreased by 8<br>currently: <span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">omni-dimensions are boosted by achievements completed<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">omni-dimensions get a multiplier based on unspent OP<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">replicators are faster based on infinities<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">gravitons are more effective based on their amount<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">multiplier per 10 dimensions is stronger based on galaxies<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">dimension boosts affect omni-dimensions at reduced rate<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">free tickspeed upgrades boost replicator effect at reduced rate<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">omni-dimensions are affected by tickspeed at greatly reduced rate<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>unlock omni-challenges<br><span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">tier I replicators boost omni-dimensions and replicanti speed<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>pick all paths from the first timestudy split<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">omni-dimensions are affected by replicanti multiplier ^ 0.01.<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">eighth omni-dimensions boost first omni-dimensions<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">replicanti multiplier is boosted by replicator multiplier<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou">replicators are slower, but their effect is boosted by time shards<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>distant galaxy scaling is 20% slower<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>remote galaxy scaling is 20% slower<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>unlock the blade<br><span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
-					<div class = "omniupglocked" name = "ou"><br>???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</div>
+					<button class = "omniupglocked" name = "ou">multiply OP gain by 2 for every order of magnitude of current OP<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">dimension boost scaling is decreased by 2<br>currently: <span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">galaxy cost scaling is decreased by 8<br>currently: <span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">omni-dimensions are boosted by achievements completed<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">omni-dimensions get a multiplier based on unspent OP<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">replicators are faster based on infinities<br>currently: <span name = "ouinfo"></span>x<br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">gravitons are more effective based on their amount<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">multiplier per 10 dimensions is stronger based on galaxies<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">dimension boosts affect omni-dimensions at reduced rate<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">free tickspeed upgrades boost replicator effect at reduced rate<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">omni-dimensions are affected by tickspeed at greatly reduced rate<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">unlock omni-challenges<br><span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">tier I replicators boost omni-dimensions and replicanti speed<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">pick all paths from the first timestudy split<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">omni-dimensions are affected by replicanti multiplier ^ 0.01.<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">eighth omni-dimensions boost first omni-dimensions<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">replicanti multiplier is boosted by replicator multiplier<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">replicators are slower, but their effect is boosted by time shards<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">distant galaxy scaling is 20% slower<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">remote galaxy scaling is 20% slower<span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">unlock the blade<br><span style = "display: none" name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">gain 100% of eternity gain every second<br>+<span name = "ouinfo"></span> eternities/s<br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">omni-dimensions get a multiplier based on generated 8th dimensions<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">base unstable matter gain is boosted by gravitons<br>currently: ^<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">replicanti and replicators are both faster based on VP<br>currently: x<span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">INCOMPLETE/WIP<br>eventually will boost rift stability<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
+					<button class = "omniupglocked" name = "ou">???<br><span name = "ouinfo"></span><br>cost: <span name = "oucost"></span> OP</button>
 				</center>
 			</div>
 			<div id = "omnimilestones" class = "omnitab">
 				<center>
 					<h1>omnipotence milestones</h1>
-					<p style = "font-size: 12px">you've gone omnipotent <span id = "omniTimes"></span> times.</p>
+					<p style = "font-size: 12px">you've gone omnipotent <span id = "omniTimes"></span> times<span id = "divisionTimes"></span>.</p>
+					<p style = "font-size: 12px" id = "divFactorDisplay">your lowest omnipotence in a single division is <span id = "divisionRecord"></span>, resulting in a division factor of <span id = "divisionFactor"></span>.</p>
 					<p>you have <span class = "op"></span> omnipotence points.</p>
-					<div class = "omnimilestonelocked" id = "om0">keep infinity upgrades<br><span id = "omreq0"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om1">keep post-infinity upgrades<br><span id = "omreq1"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om2">keep eternity upgrades<br><span id = "omreq2"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om3">keep time studies<br><span id = "omreq3"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om4">keep banked infinities<br><span id = "omreq4"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om5">keep eternity challenges<br><span id = "omreq5"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om6">keep 5% of eternities<br><span id = "omreq6"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om7">gain 1% of EP/s<br><span id = "omreq7"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om8" style = "display: none">keep dilation studies<br><span id = "omreq8"></span></div><br>
-					<div class = "omnimilestonelocked" id = "om9" style = "display: none">keep mastery studies<br><span id = "omreq9"></span></div><br>
+					<table>
+						<td id = "oma">
+							<button disabled class = "omnimilestonelocked" id = "om0">keep infinity upgrades<br><span id = "omreq0"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om1">keep post-infinity upgrades<br><span id = "omreq1"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om2">keep eternity upgrades<br><span id = "omreq2"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om3">keep time studies<br><span id = "omreq3"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om4">keep banked infinities<br><span id = "omreq4"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om5">keep eternity challenges<br><span id = "omreq5"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om6">keep 5% of eternities<br><span id = "omreq6"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om7">gain 1% of EP/s<br><span id = "omreq7"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om8" style = "display: none">keep dilation studies<br><span id = "omreq8"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "om9" style = "display: none">keep mastery studies<br><span id = "omreq9"></span></button><br>
+						</td>
+						<td id = "dma">
+							<button disabled class = "omnimilestonelocked" id = "dm0">keep eighth omnipontence milestone<br><span id = "dmreq0"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm1">keep one milestone per division<br><span id = "dmreq1"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm2">automate omni-dimension upgrades<br><span id = "dmreq2"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm3">keep replicator unlocks<br><span id = "dmreq3"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm4">keep omni-challenge completions<br><span id = "dmreq4"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm5">keep omni-upgrades<br><span id = "dmreq5"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm6">gain 1% of OP/s<br><span id = "dmreq6"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm7">automate divisions<br><span id = "dmreq7"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm8" style = "display: none">keep dilation studies<br><span id = "dmreq8"></span></button><br>
+							<button disabled class = "omnimilestonelocked" id = "dm9" style = "display: none">keep mastery studies<br><span id = "dmreq9"></span></button><br>
+						</td>
+					</table>
 				</center>
 			</div>
 			<div id = "theblade" class = "omnitab" style = "height: 1500px">
 				<center>
+					<div style = "position: absolute; left: 0%; width: 100%;">
+						dividing the omniverse will generate <span class = "darkcurrency" id = "umgain">0</span> unstable matter.<br><span class = "darkcurrency" style = "font-size: 100%" id = "umgainrate"></span> UM/min
+					</div>
 					<div id = "lightupgrades" style = "position: absolute; left: 0%; width: 50%;">
 						you have <span id = "virtualparticles" class = "lightcurrency">0</span> virtual particles.<br>
-						you have gained a total of <span id = "totalvirtualparticles" class = "lightcurrency">0</span>.<br>
+						your total effective VP is <span id = "totalvirtualparticles" class = "lightcurrency">0</span>.<br>
 						you have <span id = "virtualgalaxies" class = "lightcurrency">0</span> virtual galaxies.<br>
-						next virtual galaxy at <span id = "virtualgalaxycost" class = "lightcurrency">0</span> virtual particles.<br>
+						virtual galaxy power: <span id = "virtualgalaxypower" class = "lightcurrency">0</span><br>
+						next virtual galaxy at <span id = "virtualgalaxycost" class = "lightcurrency">0</span> total virtual particles.<br><br>
+						<table id = "shardupgs"></table>
 					</div>
 					<div id = "darkupgrades" style = "position: absolute; right: 0%; width: 50%">
 						you have <span id = "unstablematter" class = "darkcurrency">0</span> unstable matter.<br>
@@ -4772,20 +4807,19 @@
 						you have <span id = "shards" class = "darkcurrency">0</span> dimensional shards.<br>
 						<br>
 						<br>
-						energy input: <span id = "energyindisplay">0</span>%<br>
+						decay speed: <span id = "energyindisplay">0</span>%<br>
 						<input type = "range" min = "0" max = "10" value = "0" id = "energyinput" style = "width: 300px"><br>
 						<br>
-						the rift contains <span id = "riftenergy" class = "darkcurrency">0</span> energy. <span id = "energyrate" class = "darkcurrency">0</span> energy/s<br>
-						it has produced <span id = "eighthextra" class = "darkcurrency">0</span> eighth dimensions. <span id = "eighthprod" class = "darkcurrency">0</span> <span id = "eighthunit">dimensions/s</span><br>
+						the rift contains <span id = "riftenergy" class = "darkcurrency">0</span> dark energy. <span id = "energyrate" class = "darkcurrency">0</span> dark energy/s<br>
+						it has produced <span id = "eighthextra" class = "darkcurrency">0</span> eighth dimensions. (currently <span id = "eighthextracurrent">0</span>)<br>
 						rift stability: <span id = "stability" class = "darkcurrency">100%</span><br>
 						<br>
-						<button class = "darkbutton" style = "width: 300px; height: 50px;" onclick = "dumpEnergy()">release all energy from the rift.<br>gain <span id = "vpgain" class = "lightcurrency">0</span> VP.</button>
+						<button class = "darkbutton" style = "width: 300px; padding: 4px; padding-bottom: 10px" onclick = "meltdown(true)">destroy the rift to regain <span class = "darkcurrency" id = "shardrespec"></span> dimensional shards.<br></button><br>
+						the next rift collapse will generate <span id = "vpgain" class = "lightcurrency">0</span> VP.<br>
+						respec dimensional shards on next collapse: <input type = "checkbox" style = "vertical-align: bottom" id = "divrespec" onclick = "player.mods.ngt.division.respec = !player.mods.ngt.division.respec">
 					</div>
 				
-					<div id = "blade" style = "position: absolute; left: 40%; width: 20%" onclick = "divide()"><img src = "images/blade.png"></div>
-					<div id = "death" style = "z-index: 100000; position: fixed; width: 100%; height: 100%; left: 0; top: 0; background-color: black; transition-duration: 5s; display: none">
-						<div id = "bleed" style = "font-size: 200%; color: black; text-shadow: 0px 0px 7px #f00; width: 100%; position: fixed; top: 30%; transition-duration: 5s"></div>
-					</div>
+					<div id = "blade" style = "position: absolute; left: 45%; width: 10%; box-shadow: 0px 0px 25px #900, inset 0px 0px 25px #900; border-radius: 9999px;" onclick = "divide()"><img src = "images/blade.png"></div>
 				</center>
 			</div>
 		</div>
